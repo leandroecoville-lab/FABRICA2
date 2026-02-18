@@ -8,9 +8,7 @@ on:
         required: true
         default: "pack0"
         type: choice
-        options:
-          - pack0
-          - pack1
+        options: [pack0, pack1]
       module:
         description: "Nome do modulo (ex: meetcore)"
         required: true
@@ -49,14 +47,17 @@ jobs:
         run: |
           echo "${{ inputs.blueprint }}" > _inputs/blueprint.txt
 
-      - name: Rodar motor (modo pacote)
+      - name: Rodar motor (modo pacote com PYTHONPATH certo)
         env:
           MODE: ${{ inputs.mode }}
           MODULE: ${{ inputs.module }}
           TRACE: ${{ inputs.trace }}
         run: |
           cd services/pack-factory
-          export PYTHONPATH="$(pwd):$(pwd)/..:$PYTHONPATH"
+
+          # AQUI está o conserto: o Python precisa ver "services/pack-factory" como raiz
+          export PYTHONPATH="$(pwd):$PYTHONPATH"
+
           python -m app.cli "$MODE" --module "$MODULE" --out "../../_outputs" --trace "$TRACE" --blueprint "../../_inputs/blueprint.txt"
 
       - name: Criar ZIP
