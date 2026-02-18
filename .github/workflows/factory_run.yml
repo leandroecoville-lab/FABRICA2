@@ -7,4 +7,5 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "OK - WORKFLOW FUNCIONANDO"
+      - name: Say OK
+        run: echo "OK - WORKFLOW FUNCIONANDO"
