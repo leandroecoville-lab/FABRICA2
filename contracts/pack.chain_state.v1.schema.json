@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pack.chain_state.v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace_id",
+    "timestamp",
+    "current_approved_pack",
+    "next_expected",
+    "blocking_reasons"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "current_approved_pack": {
+      "type": "string"
+    },
+    "next_expected": {
+      "type": "string"
+    },
+    "blocking_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "history_refs": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

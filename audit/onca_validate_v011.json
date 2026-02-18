@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "ONCA_VAL_V011",
+  "timestamp": "2026-01-22T15:36:43Z",
+  "ok": true,
+  "counts": {
+    "rows": 4,
+    "parse_errors": 0,
+    "duplicates_onca_id": 0,
+    "duplicates_path": 0,
+    "duplicates_sha256": 0
+  },
+  "warnings": [],
+  "blocking_reasons": []
+}

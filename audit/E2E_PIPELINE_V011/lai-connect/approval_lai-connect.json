@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "pack_ref": "pack0-lai-connect@0.0.1",
+  "pack_sha256": "21655bd0a67814621226fd56faa2e96f5d50ae444ec6571c608f1f68af1509d7",
+  "decision": "approved",
+  "criteria_version": "DoD v1.0",
+  "notes": "",
+  "actor_id": "clone_engenheiro",
+  "trace_id": "V011SIM_AP",
+  "timestamp": "2026-01-22T15:16:01Z"
+}

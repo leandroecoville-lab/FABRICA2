@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pack.approval.v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "pack_ref",
+    "pack_sha256",
+    "decision",
+    "criteria_version",
+    "actor_id",
+    "trace_id",
+    "timestamp"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "pack_ref": {
+      "type": "string"
+    },
+    "pack_sha256": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "rejected"
+      ]
+    },
+    "criteria_version": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "actor_id": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

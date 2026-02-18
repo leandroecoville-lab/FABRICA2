@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "meetcore.call.ended.v1",
+  "type": "object",
+  "required": [
+    "specversion",
+    "type",
+    "source",
+    "id",
+    "time",
+    "datacontenttype",
+    "data"
+  ],
+  "properties": {
+    "specversion": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "const": "meetcore.call.ended"
+    },
+    "source": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "datacontenttype": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "tenant_id",
+        "call_id",
+        "duration_s"
+      ],
+      "properties": {
+        "tenant_id": {
+          "type": "string"
+        },
+        "call_id": {
+          "type": "string"
+        },
+        "room_id": {
+          "type": "string"
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "seq": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "duration_s": {
+          "type": "number"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

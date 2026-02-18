@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "checked_zip": "/mnt/data/_v11_build/_out_V011SIM_app_lai/team_pack0_app-lai.zip",
+  "policy": "/mnt/data/_v11_build/governance/audience_policy.team_pack0_only.v1.json",
+  "violations": [],
+  "counts": {
+    "violations": 0
+  },
+  "trace_id": "V011SIM_LEAK",
+  "timestamp": "2026-01-22T15:16:17Z"
+}

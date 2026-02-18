@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "V011_EXPORT_TEAM_STRESS_1000",
+  "started_at": "2026-01-22T15:27:59Z",
+  "finished_at": "2026-01-22T15:30:22Z",
+  "policy": "/mnt/data/_v11_build/governance/audience_policy.team_pack0_only.v1.json",
+  "overall_status": "PASS",
+  "totals": {
+    "iterations": 1000,
+    "passes": 1000,
+    "fails": 0
+  },
+  "per_module": {
+    "meetcore": {
+      "iterations": 250,
+      "passes": 250,
+      "fails": 0,
+      "p95_ms": 98.91,
+      "mean_ms": 80.3
+    },
+    "lai-connect": {
+      "iterations": 250,
+      "passes": 250,
+      "fails": 0,
+      "p95_ms": 94.77,
+      "mean_ms": 77.46
+    },
+    "app-lai": {
+      "iterations": 250,
+      "passes": 250,
+      "fails": 0,
+      "p95_ms": 92.96,
+      "mean_ms": 76.85
+    },
+    "culture-people": {
+      "iterations": 250,
+      "passes": 250,
+      "fails": 0,
+      "p95_ms": 90.98,
+      "mean_ms": 77.13
+    }
+  },
+  "first_fail": null,
+  "note": "Loop de 1000 execuções: export-team-pack(snapshot) + leak-check(policy) alternando módulos."
+}

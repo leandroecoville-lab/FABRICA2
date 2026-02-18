@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "V011SIM_GATE",
+  "timestamp": "2026-01-22T15:15:55Z",
+  "ok": true,
+  "expected": "pack1",
+  "next_expected": "pack1",
+  "next_expected_variants": [
+    "PEC1.01",
+    "PEC1.02",
+    "PEC1.03",
+    "PEC1.04",
+    "PEC1.05"
+  ],
+  "blocking_reasons": [],
+  "reasons": []
+}

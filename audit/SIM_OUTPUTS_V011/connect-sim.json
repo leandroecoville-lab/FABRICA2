@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "SIM_connect-sim",
+  "timestamp": "2026-01-22T15:17:11Z",
+  "overall_status": "PASS",
+  "events_count": 2,
+  "validations": [
+    {
+      "type": "lai.connect.message.received",
+      "status": "pass"
+    },
+    {
+      "type": "lai.connect.message.sent",
+      "status": "pass"
+    }
+  ]
+}

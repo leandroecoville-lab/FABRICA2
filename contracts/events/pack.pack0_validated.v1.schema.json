@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pack.pack0_validated.v1",
+  "type": "object",
+  "properties": {
+    "specversion": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "const": "pack.pack0_validated"
+    },
+    "source": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "datacontenttype": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "pack_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "validation_report_ref": {
+          "type": "string"
+        },
+        "trace_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pack_id",
+        "version",
+        "validation_report_ref",
+        "trace_id"
+      ]
+    }
+  },
+  "required": [
+    "specversion",
+    "type",
+    "source",
+    "id",
+    "time",
+    "datacontenttype",
+    "data"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-01-22T15:40:21Z",
+  "version": "0.11.0",
+  "trace_id": "LAI-V011-F5AF89B4",
+  "note": "Inventário público (counts por top-level). Não contém conteúdo externalizado.",
+  "counts": {
+    ".github": 5,
+    "00_INDEXES": 1,
+    "02_INVENTORY": 5,
+    "audit": 41,
+    "CHANGELOG.md": 1,
+    "contracts": 25,
+    "db": 2,
+    "docs": 21,
+    "governance": 5,
+    "gpt_builder": 11,
+    "history": 2,
+    "infra": 3,
+    "Makefile": 1,
+    "observability": 2,
+    "README.md": 1,
+    "runbooks": 8,
+    "SECURITY.md": 1,
+    "services": 22,
+    "tests": 20
+  },
+  "total_files": 177
+}

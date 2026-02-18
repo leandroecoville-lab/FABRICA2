@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "SIM_meetcore-sim",
+  "timestamp": "2026-01-22T15:17:10Z",
+  "overall_status": "PASS",
+  "events_count": 4,
+  "validations": [
+    {
+      "type": "meetcore.call.started",
+      "status": "pass"
+    },
+    {
+      "type": "meetcore.transcript.partial",
+      "status": "pass"
+    },
+    {
+      "type": "meetcore.call.ended",
+      "status": "pass"
+    },
+    {
+      "type": "meetcore.postcall.completed",
+      "status": "pass"
+    }
+  ],
+  "sample_call_id": "call-edf5b0e5"
+}

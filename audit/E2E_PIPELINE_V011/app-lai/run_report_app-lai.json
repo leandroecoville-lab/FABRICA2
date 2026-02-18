@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "pack_ref": "pack0-app-lai@0.0.1",
+  "pack_sha256": "02b587852615e306fee57f613cfbb6fabfc049147d0c2d3a3131523396b7db0d",
+  "result": "pass",
+  "checks": {
+    "pack0_validate": true
+  },
+  "failures": [],
+  "actor_id": "unknown",
+  "trace_id": "V011SIM_RR",
+  "env_fingerprint": "python=3.11.8",
+  "timestamp": "2026-01-22T15:16:10Z"
+}

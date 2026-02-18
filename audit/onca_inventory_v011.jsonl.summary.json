@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "ONCA_V011",
+  "timestamp": "2026-01-22T15:36:42Z",
+  "root": "/mnt/data/_v11_build",
+  "recursive": false,
+  "rows": 4,
+  "bytes": 5665,
+  "out": "/mnt/data/_v11_build/audit/onca_inventory_v011.jsonl"
+}

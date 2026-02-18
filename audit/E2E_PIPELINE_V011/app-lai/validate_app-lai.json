@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "gaps": [],
+  "checked_paths": [
+    "docs/PLAN.md",
+    "docs/PROMPT_CONTINUIDADE.md",
+    "docs/TROUBLESHOOTING.md",
+    "docs/DEFINITION_OF_DONE.md",
+    "runbooks/HOW_TO_RUN.md",
+    "runbooks/HOW_TO_DEPLOY.md",
+    "runbooks/HOW_TO_ROLLBACK.md",
+    "contracts/README.json",
+    "docs/APP_LAI_SLICES.md",
+    "docs/DATA_RETENTION_MATRIX.md"
+  ],
+  "checked_sections": [
+    "Introdução",
+    "Propósito",
+    "Escopo",
+    "Características dos Usuários",
+    "Referências",
+    "Visão Geral do Produto",
+    "Perspectiva do Produto",
+    "Funcionalidades",
+    "Ambiente Operacional",
+    "Limitações",
+    "Suposições e Dependências",
+    "Requisitos Funcionais",
+    "Requisitos Não Funcionais",
+    "Casos de Uso",
+    "Diagramas",
+    "Rastreabilidade",
+    "Plano de Implementação",
+    "Testes",
+    "Aceite",
+    "Rollout",
+    "Rollback",
+    "Definition of Done"
+  ],
+  "meta": {
+    "pack_id": "pack0-app-lai",
+    "version": "0.0.1"
+  },
+  "trace_id": "V011SIM_VAL"
+}

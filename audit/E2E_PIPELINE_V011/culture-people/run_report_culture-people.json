@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "pack_ref": "pack0-culture-people@0.0.1",
+  "pack_sha256": "5d3dc3922e975085ec32605cf8a8dfdc079a83fdaee3667330ccc844522e324a",
+  "result": "pass",
+  "checks": {
+    "pack0_validate": true
+  },
+  "failures": [],
+  "actor_id": "unknown",
+  "trace_id": "V011SIM_RR",
+  "env_fingerprint": "python=3.11.8",
+  "timestamp": "2026-01-22T15:16:20Z"
+}

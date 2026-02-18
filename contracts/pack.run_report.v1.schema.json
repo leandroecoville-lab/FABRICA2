@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pack.run_report.v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "pack_ref",
+    "pack_sha256",
+    "result",
+    "checks",
+    "trace_id",
+    "actor_id",
+    "timestamp"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "pack_ref": {
+      "type": "string"
+    },
+    "pack_sha256": {
+      "type": "string"
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    },
+    "checks": {
+      "type": "object"
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "actor_id": {
+      "type": "string"
+    },
+    "env_fingerprint": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

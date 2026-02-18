@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LAI Pack Manifest v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "pack_id",
+    "version",
+    "created_at",
+    "modules",
+    "entrypoints",
+    "trace"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "pack_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "parents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entrypoints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ops": {
+      "type": "object"
+    },
+    "tests": {
+      "type": "object"
+    },
+    "trace": {
+      "type": "object",
+      "required": [
+        "trace_id"
+      ],
+      "properties": {
+        "trace_id": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

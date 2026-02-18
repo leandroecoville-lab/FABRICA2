@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-01-19T04:19:12Z",
+  "note": "Alias mapping não destrutivo para compatibilizar índices históricos com nomes reais de anexos.",
+  "aliases": [
+    {
+      "from": "/mnt/data/7pacote de dados connect leitura intencao texto.zip",
+      "to": "/mnt/data/8pacote de dados connect leitura intencao texto.zip",
+      "reason": "variação de naming do mesmo bundle de Text Insights (Leitura Escrita)"
+    }
+  ]
+}

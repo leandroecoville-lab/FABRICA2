@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "V011_STRESS_1000",
+  "timestamp": "2026-01-22T15:24:04Z",
+  "n_iterations": 1000,
+  "total_validations": 8000,
+  "duration_s": 1.4665625095367432,
+  "overall_status": "PASS",
+  "per_type": {
+    "lai.connect.message.received": {
+      "pass": 1000,
+      "fail": 0
+    },
+    "lai.connect.message.sent": {
+      "pass": 1000,
+      "fail": 0
+    },
+    "lai.app.feed.item.created": {
+      "pass": 1000,
+      "fail": 0
+    },
+    "lai.culture.session.report.created": {
+      "pass": 1000,
+      "fail": 0
+    },
+    "meetcore.call.started": {
+      "pass": 1000,
+      "fail": 0
+    },
+    "meetcore.transcript.partial": {
+      "pass": 1000,
+      "fail": 0
+    },
+    "meetcore.call.ended": {
+      "pass": 1000,
+      "fail": 0
+    },
+    "meetcore.postcall.completed": {
+      "pass": 1000,
+      "fail": 0
+    }
+  },
+  "failures_sample": []
+}

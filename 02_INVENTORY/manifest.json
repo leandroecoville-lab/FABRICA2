@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "pack_id": "lai-pack-factory",
+  "version": "0.11.0",
+  "created_at": "2026-01-22T15:11:10Z",
+  "parents": [
+    "lai-pack-factory@0.10.1-fix1"
+  ],
+  "modules": [
+    "pack-factory-core"
+  ],
+  "features": [
+    "app-sim",
+    "audience-policy-contract",
+    "audit-log-append-only",
+    "bigtech-terminology-normalizer",
+    "blueprints-in-references",
+    "book-filemap-public-only",
+    "builder-chain-state-gate-blocking-reasons",
+    "cache-free-release-zip",
+    "command-master-runbook-v011",
+    "connect-sim",
+    "culture-people-sim",
+    "diag-runner",
+    "docs-generator",
+    "export-manual",
+    "export-team-pack",
+    "export-team-pack-refuses-release-pack",
+    "externalized-references-and-semantic-index",
+    "leak-check-gate",
+    "maint-console",
+    "maint-gate-next",
+    "manual-commands-catalog-updated",
+    "meetcore-next_expected-variants",
+    "meetcore-pack0-gate-slices-budgets-retention",
+    "meetcore-sim",
+    "meplai-mode",
+    "merge-promoted",
+    "next_expected-robust",
+    "oca-workflow",
+    "onca-scan-validate",
+    "onca-validate-warn-dup-sha256",
+    "pack-merger",
+    "pack0-baseline-data-retention-matrix",
+    "pack0-core-modules-fixed",
+    "pack0-multi-module-slices",
+    "pack0-planner",
+    "pec-gating-approval",
+    "pec-gating-run-report",
+    "pec-patch-packs",
+    "plan-pack1",
+    "policy-flags-legacy-sensitive-reference-only",
+    "prompts-hard-gated-pack1-oca",
+    "public-export-policy",
+    "removed-placeholders-for-externalized",
+    "rtip-sanitize",
+    "semantic-index-sanitized",
+    "team-manual-lucas-joao-breno",
+    "team-pack0-only-default-deny",
+    "zip-chain-resolver"
+  ],
+  "entrypoints": [
+    "00_INDEXES/README.md",
+    "docs/DEFINITION_OF_DONE.md",
+    "docs/GITHUB_MAPPING.md",
+    "docs/LEGACY_NOTES.md",
+    "docs/MODO_EXECUCAO_PADRAO_LAI.md",
+    "docs/PACK_LIFECYCLE.md",
+    "docs/SEMANTIC_INVENTORY_EVALUATION.md",
+    "docs/SOFTWARE_BOOK_SPEC.md",
+    "docs/STATE_SNAPSHOT.md",
+    "docs/public/FILEMAP.md",
+    "docs/public/PROMPT_CONTINUIDADE.md",
+    "docs/public/SOFTWARE_BOOK.md",
+    "docs/references/documento_de_requisitos_analise_projeto.pdf",
+    "gpt_builder/MODO_EXECUCAO_PADRAO_LAI.md",
+    "gpt_builder/ORQUESTRADOR_MASTER.md",
+    "infra/pack-factory.Dockerfile",
+    "runbooks/ENGINEERING_MANUAL.md",
+    "runbooks/HOW_TO_DEBUG.md",
+    "runbooks/HOW_TO_RUN.md",
+    "runbooks/HOW_TO_TEST.md",
+    "runbooks/TEAM_MANUAL_LUCAS_JOAO_BRENO.md",
+    "services/pack-factory/app/book.py",
+    "services/pack-factory/app/cli.py",
+    "services/pack-factory/app/inventory.py",
+    "services/pack-factory/app/oca.py"
+  ],
+  "ops": {
+    "runbooks": [
+      "runbooks/"
+    ],
+    "known_issues": [
+      "docs/KNOWN_ISSUES.md"
+    ],
+    "rollback": [
+      "runbooks/HOW_TO_ROLLBACK.md"
+    ]
+  },
+  "tests": {
+    "unit": [
+      "tests/unit/"
+    ],
+    "integration": [
+      "tests/integration/"
+    ],
+    "e2e": [
+      "tests/e2e/"
+    ]
+  },
+  "trace": {
+    "trace_id": "LAI-V010-FIX1"
+  },
+  "content_hash": {
+    "algo": "sha256",
+    "value": "5648ee21055ec5e8bc899c6fe0907b0839da19bab72e2a56c95e52138f6238c1",
+    "note": "sha256 do 02_INVENTORY/pack.meta.json (fonte de integridade)"
+  }
+}
