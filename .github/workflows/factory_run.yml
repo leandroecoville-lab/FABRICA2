@@ -8,7 +8,9 @@ on:
         required: true
         default: "pack0"
         type: choice
-        options: [pack0, pack1]
+        options:
+          - pack0
+          - pack1
       module:
         description: "Nome do modulo (ex: meetcore)"
         required: true
@@ -18,7 +20,7 @@ on:
         required: true
         default: "LAI-RUN"
       blueprint:
-        description: "Blueprint (curto). Se for grande, deixe vazio."
+        description: "Blueprint (opcional, fica salvo como arquivo, mas o motor nao usa argumento)"
         required: false
         default: ""
 
@@ -43,22 +45,19 @@ jobs:
         run: |
           mkdir -p _inputs _outputs
 
-      - name: Salvar blueprint
+      - name: Salvar blueprint (apenas arquivo)
         run: |
           echo "${{ inputs.blueprint }}" > _inputs/blueprint.txt
 
-      - name: Rodar motor (modo pacote com PYTHONPATH certo)
+      - name: Rodar motor (sem --blueprint)
         env:
           MODE: ${{ inputs.mode }}
           MODULE: ${{ inputs.module }}
           TRACE: ${{ inputs.trace }}
         run: |
           cd services/pack-factory
-
-          # AQUI está o conserto: o Python precisa ver "services/pack-factory" como raiz
           export PYTHONPATH="$(pwd):$PYTHONPATH"
-
-          python -m app.cli "$MODE" --module "$MODULE" --out "../../_outputs" --trace "$TRACE" --blueprint "../../_inputs/blueprint.txt"
+          python -m app.cli "$MODE" --module "$MODULE" --out "../../_outputs" --trace "$TRACE"
 
       - name: Criar ZIP
         run: |
