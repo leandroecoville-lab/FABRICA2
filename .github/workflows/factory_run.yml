@@ -1,35 +1,32 @@
-name: PRODUÇÃO DE FÁBRICA
+name: PRODUCAO_DE_FABRICA
 
 on:
   workflow_dispatch:
     inputs:
-      modo:
+      mode:
         description: "Escolha o que gerar"
         required: true
         default: "pack0"
         type: choice
-        options:
-          - pack0
-          - pack1
-      modulo:
-        description: "Nome do módulo (ex: meetcore)"
+        options: [pack0, pack1]
+      module:
+        description: "Nome do modulo (ex: meetcore)"
         required: true
         default: "meetcore"
       trace:
-        description: "Identificador (qualquer texto)"
+        description: "Identificador"
         required: true
         default: "LAI-RUN"
       blueprint:
-        description: "Cole aqui o blueprint (curto). Se for grande, deixe vazio."
+        description: "Blueprint (curto). Se for grande, deixe vazio."
         required: false
         default: ""
 
 jobs:
   gerar:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Baixar código do repo
+      - name: Baixar codigo do repo
         uses: actions/checkout@v4
 
       - name: Preparar Python
@@ -37,42 +34,39 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Instalar dependências do motor da fábrica
+      - name: Instalar dependencias do motor
         run: |
           python -m pip install --upgrade pip
           pip install -r services/pack-factory/requirements.txt
 
       - name: Preparar pastas
         run: |
-          mkdir -p _inputs _outputs _audit _tmp
+          mkdir -p _inputs _outputs
 
-      - name: Salvar blueprint como arquivo
+      - name: Salvar blueprint
         run: |
           echo "${{ inputs.blueprint }}" > _inputs/blueprint.txt
 
-      - name: Rodar motor da fábrica
+      - name: Rodar motor
         env:
           PYTHONPATH: services/pack-factory:.
         run: |
-          MODO="${{ inputs.modo }}"
-          MODULO="${{ inputs.modulo }}"
+          MODE="${{ inputs.mode }}"
+          MODULE="${{ inputs.module }}"
           TRACE="${{ inputs.trace }}"
-
-          if [ "$MODO" = "pack0" ]; then
-            python -m app.cli pack0 --module "$MODULO" --out "_outputs" --trace "$TRACE" --blueprint "_inputs/blueprint.txt"
-          elif [ "$MODO" = "pack1" ]; then
-            python -m app.cli pack1 --module "$MODULO" --out "_outputs" --trace "$TRACE" --blueprint "_inputs/blueprint.txt"
+          if [ "$MODE" = "pack0" ]; then
+            python -m app.cli pack0 --module "$MODULE" --out "_outputs" --trace "$TRACE" --blueprint "_inputs/blueprint.txt"
           else
-            echo "Modo inválido"; exit 1
+            python -m app.cli pack1 --module "$MODULE" --out "_outputs" --trace "$TRACE" --blueprint "_inputs/blueprint.txt"
           fi
 
-      - name: Gerar arquivo para baixar (ZIP)
+      - name: Criar ZIP
         run: |
           cd _outputs
           zip -r ../factory_outputs.zip .
           cd ..
 
-      - name: Enviar arquivo para download
+      - name: Enviar ZIP
         uses: actions/upload-artifact@v4
         with:
           name: factory_outputs
