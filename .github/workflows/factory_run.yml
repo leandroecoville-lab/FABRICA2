@@ -34,10 +34,23 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Encontrar requirements.txt
+        id: req
+        run: |
+          echo "Procurando requirements.txt..."
+          REQ=$(find services -maxdepth 4 -name requirements.txt | head -n 1)
+          echo "REQ=$REQ" >> $GITHUB_ENV
+          if [ -z "$REQ" ]; then
+            echo "NAO_ENCONTREI_REQUIREMENTS"
+            find services -maxdepth 4 -type f | head -n 200
+            exit 1
+          fi
+          echo "Achei: $REQ"
+
       - name: Instalar dependencias do motor
         run: |
           python -m pip install --upgrade pip
-          pip install -r services/pack-factory/requirements.txt
+          pip install -r "$REQ"
 
       - name: Preparar pastas
         run: |
@@ -54,6 +67,7 @@ jobs:
           MODE="${{ inputs.mode }}"
           MODULE="${{ inputs.module }}"
           TRACE="${{ inputs.trace }}"
+
           if [ "$MODE" = "pack0" ]; then
             python -m app.cli pack0 --module "$MODULE" --out "_outputs" --trace "$TRACE" --blueprint "_inputs/blueprint.txt"
           else
