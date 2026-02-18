@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "exclude_prefixes": [
+    "docs/references/",
+    "02_INVENTORY/semantic_index/",
+    "history/",
+    "gpt_builder/",
+    ".github/",
+    ".pytest_cache/"
+  ],
+  "exclude_name_regexes": [
+    "^⚠️",
+    "NÚCLEOS",
+    "NUCLEOS",
+    "REINTERPRETACAO"
+  ],
+  "note": "Filtro aplicado em docs/public (FileMap/Software Book) e export-team-pack."
+}

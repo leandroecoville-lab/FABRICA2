@@ -1,0 +1,3 @@
+Contexto do modo:
+- STYLE_PROFILE (VS5) e BEHAVIOR_PROFILE (V2) estão preservados em sources/ e descritos no ENGINEER_FUSION_CODEX.
+- Use o router (NORMAL/PRESSAO/CAOS/AMBIGUO) para ajustar o comportamento sem quebrar o estilo de escrita.

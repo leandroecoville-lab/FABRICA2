@@ -1,0 +1,3 @@
+Como usar:
+- Diga o domínio (ex: auth, checkout), o objetivo e o contexto (NORMAL/PRESSAO/CAOS/AMBIGUO).
+- Se não souber o estado, descreva: prazo, qualidade esperada, e se o repo está limpo ou bagunçado.

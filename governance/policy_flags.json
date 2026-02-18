@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-01-19T22:54:06Z",
+  "policy_flags": {
+    "legacy_sensitive_material": {
+      "mode": "reference_only",
+      "default_deny_execution": true,
+      "paths": [
+        "docs/references/GPT NÚCLEOS só eu devo ler.pdf",
+        "docs/references/LAI_REINTERPRETACAO_BIG_TECH_v2.0.md",
+        "docs/references/LAI — REINTERPRETAÇÃO BIG TECH v1.0 .pdf",
+        "docs/references/App Lai - sistema Lai resumo.pdf",
+        "docs/references/Lai - 4 pilares e gatilhos.pdf"
+      ],
+      "note": "Materiais legados/sensíveis ficam preservados por rastreabilidade. Uso operacional deve seguir governança, transparência e consentimento."
+    }
+  }
+}

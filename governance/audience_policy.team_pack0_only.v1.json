@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "audience": "team",
+  "export_mode": "pack0_only",
+  "allowlist_prefixes": [
+    "00_INDEXES/",
+    "02_INVENTORY/",
+    "contracts/",
+    "docs/",
+    "runbooks/",
+    "db/",
+    "infra/",
+    "observability/",
+    "governance/"
+  ],
+  "denylist_prefixes": [
+    "services/pack-factory/",
+    "02_INVENTORY/semantic_index/",
+    "docs/references/",
+    "gpt_builder/",
+    "history/",
+    ".github/",
+    ".pytest_cache/",
+    "__pycache__/"
+  ],
+  "denylist_regex": [
+    "\\.pyc$",
+    "^⚠️"
+  ],
+  "note": "Policy default-deny para export team-safe. Esperado: input é snapshot promoted (PEC chain)."
+}
