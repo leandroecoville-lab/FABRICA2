@@ -12,7 +12,7 @@ on:
           - pack0
           - pack1
       modulo:
-        description: "Nome do módulo"
+        description: "Nome do módulo (ex: meetcore)"
         required: true
         default: "meetcore"
       trace:
