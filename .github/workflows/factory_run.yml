@@ -49,13 +49,15 @@ jobs:
         run: |
           echo "${{ inputs.blueprint }}" > _inputs/blueprint.txt
 
-      - name: Rodar motor (cli.py)
+      - name: Rodar motor (modo pacote)
         env:
           MODE: ${{ inputs.mode }}
           MODULE: ${{ inputs.module }}
           TRACE: ${{ inputs.trace }}
         run: |
-          python services/pack-factory/app/cli.py "$MODE" --module "$MODULE" --out "_outputs" --trace "$TRACE" --blueprint "_inputs/blueprint.txt"
+          cd services/pack-factory
+          export PYTHONPATH="$(pwd):$(pwd)/..:$PYTHONPATH"
+          python -m app.cli "$MODE" --module "$MODULE" --out "../../_outputs" --trace "$TRACE" --blueprint "../../_inputs/blueprint.txt"
 
       - name: Criar ZIP
         run: |
