@@ -1,11 +1,79 @@
-name: FACTORY_RUN
+name: PRODUÇÃO DE FÁBRICA
 
 on:
   workflow_dispatch:
+    inputs:
+      modo:
+        description: "Escolha o que gerar"
+        required: true
+        default: "pack0"
+        type: choice
+        options:
+          - pack0
+          - pack1
+      modulo:
+        description: "Nome do módulo (ex: meetcore)"
+        required: true
+        default: "meetcore"
+      trace:
+        description: "Identificador (qualquer texto)"
+        required: true
+        default: "LAI-RUN"
+      blueprint:
+        description: "Cole aqui o blueprint (curto). Se for grande, deixe vazio."
+        required: false
+        default: ""
 
 jobs:
-  hello:
+  gerar:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Say OK
-        run: echo "OK - WORKFLOW FUNCIONANDO"
+      - name: Baixar código do repo
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências do motor da fábrica
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r services/pack-factory/requirements.txt
+
+      - name: Preparar pastas
+        run: |
+          mkdir -p _inputs _outputs _audit _tmp
+
+      - name: Salvar blueprint como arquivo
+        run: |
+          echo "${{ inputs.blueprint }}" > _inputs/blueprint.txt
+
+      - name: Rodar motor da fábrica
+        env:
+          PYTHONPATH: services/pack-factory:.
+        run: |
+          MODO="${{ inputs.modo }}"
+          MODULO="${{ inputs.modulo }}"
+          TRACE="${{ inputs.trace }}"
+
+          if [ "$MODO" = "pack0" ]; then
+            python -m app.cli pack0 --module "$MODULO" --out "_outputs" --trace "$TRACE" --blueprint "_inputs/blueprint.txt"
+          elif [ "$MODO" = "pack1" ]; then
+            python -m app.cli pack1 --module "$MODULO" --out "_outputs" --trace "$TRACE" --blueprint "_inputs/blueprint.txt"
+          else
+            echo "Modo inválido"; exit 1
+          fi
+
+      - name: Gerar arquivo para baixar (ZIP)
+        run: |
+          cd _outputs
+          zip -r ../factory_outputs.zip .
+          cd ..
+
+      - name: Enviar arquivo para download
+        uses: actions/upload-artifact@v4
+        with:
+          name: factory_outputs
+          path: factory_outputs.zip
