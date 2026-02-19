@@ -20,7 +20,7 @@ on:
         required: true
         default: "LAI-RUN"
       blueprint:
-        description: "Blueprint (opcional, fica salvo como arquivo, mas o motor nao usa argumento)"
+        description: "Blueprint (opcional)"
         required: false
         default: ""
 
@@ -28,28 +28,26 @@ jobs:
   gerar:
     runs-on: ubuntu-latest
     steps:
-      - name: Baixar codigo do repositorio
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Preparar Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Instalar dependencias minimas
+      - name: Instalar dependencias corretas
         run: |
           python -m pip install --upgrade pip
-          pip install jsonschema
+          pip install -r services/pack-factory/requirements.txt
 
       - name: Preparar pastas
         run: |
           mkdir -p _inputs _outputs
 
-      - name: Salvar blueprint (apenas arquivo)
+      - name: Salvar blueprint (arquivo apenas)
         run: |
           echo "${{ inputs.blueprint }}" > _inputs/blueprint.txt
 
-      - name: Rodar motor (sem --blueprint)
+      - name: Rodar motor
         env:
           MODE: ${{ inputs.mode }}
           MODULE: ${{ inputs.module }}
@@ -57,16 +55,26 @@ jobs:
         run: |
           cd services/pack-factory
           export PYTHONPATH="$(pwd):$PYTHONPATH"
+
+          echo "Executando $MODE para $MODULE"
+
           python -m app.cli "$MODE" --module "$MODULE" --out "../../_outputs" --trace "$TRACE"
 
-      - name: Criar ZIP
+          if [ "$MODE" = "pack0" ]; then
+            echo "Validando Pack0"
+            python -m app.cli validate-pack0 \
+              --target "../../_outputs/pack0-${MODULE}-0.0.1.zip" \
+              --out "../../_outputs/pack0_validation.json" \
+              --trace "$TRACE"
+          fi
+
+      - name: Criar ZIP final
         run: |
           cd _outputs
           zip -r ../factory_outputs.zip .
           cd ..
 
-      - name: Enviar ZIP para download
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: factory_outputs
           path: factory_outputs.zip
